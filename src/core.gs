@@ -40,7 +40,7 @@ proc try {
 }
 
 var Info caught_exception;
-func except(exception_name) {
+func catch(exception_name) {
     _catch_status.trying--;
     
     if info_stack["last"].type == $exception_name {

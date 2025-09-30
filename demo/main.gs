@@ -28,7 +28,7 @@ nowarp proc main {
     TRY({
         say div(3, 0);
 
-        EXCEPT("ZeroDivisionError") {
+        CATCH("ZeroDivisionError") {
             log "oops..";
         }
     });

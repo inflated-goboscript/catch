@@ -3,10 +3,10 @@
 # Example use:
 # TRY({
 #     say div(3, 0);
-#     EXCEPT("ZeroDivisionError") {
+#     CATCH("ZeroDivisionError") {
 #         log "oops..";
 #     }
 # });
 
 %define TRY(code) try; if true code; validate_errors
-%define EXCEPT(code) if except(code) 
+%define CATCH(error_name) if catch(error_name) 

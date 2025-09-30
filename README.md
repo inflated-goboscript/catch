@@ -17,7 +17,7 @@ It is designed to be used with [inflator](https://github.com/inflated-goboscript
 
 > [!NOTE]
 > There is a chance that the 'context handler' macros could break in future goboscript versions.
-> if they do, you can still use the more barebones method - using `try;` and `if except()` directly
+> if they do, you can still use the more barebones method - using `try;` and `if catch()` directly
 
 ## Credits
 
