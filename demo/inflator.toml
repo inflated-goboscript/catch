@@ -3,4 +3,4 @@ name = "test"
 username = "inflated-goboscript"
 
 [dependencies]
-GOBO_MODULE = ".."
+catch = ".."

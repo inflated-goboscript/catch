@@ -1,5 +1,5 @@
 # inflator.toml syntax documentation: https://github.com/inflated-goboscript/inflator#inflator
-name = "GOBO_MODULE"
+name = "catch"
 version = "v0.0.0"
 username = "inflated-goboscript"
 

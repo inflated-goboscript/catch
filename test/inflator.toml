@@ -4,4 +4,4 @@ username = "inflated-goboscript"
 
 [dependencies]
 assert = "assert"
-GOBO_MODULE = ".."
+catch = ".."

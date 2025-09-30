@@ -1,3 +1,3 @@
 onflag {
-    log "%included inflator/GOBO_MODULE.gs";
+    log "%included inflator/catch.gs";
 }

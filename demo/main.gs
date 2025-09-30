@@ -1,8 +1,8 @@
 costumes "blank.svg";
 
-%include inflator/GOBO_MODULE
+%include inflator/catch
 
 onflag {main;}
 nowarp proc main {
-    say "Welcome to the GOBO_MODULE demo!", 3;
+    say "Welcome to the catch demo!", 3;
 }

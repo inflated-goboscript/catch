@@ -1,9 +1,9 @@
 costumes "blank.svg";
 
 %include inflator/assert
-%include inflator/GOBO_MODULE
+%include inflator/catch
 
 onflag {main;}
 proc main {
-    log "Testing GOBO_MODULE.gs";
+    log "Testing catch.gs";
 }
