@@ -27,7 +27,7 @@ if catch("ZeroDivisionError") {
 ```
 
 > [!NOTE]
-> All code within the try block *WILL* be executed, even if errors ocurr, unless it is raised by `force_raise`!
+> All code within the try block *WILL* be executed, even if errors ocurr, unless it is raised with `force: true`!
 >
 > This will immediately cause a `breakpoint` and `stop_all`, so there is no chance for any error catching. It is recommended to avoid this where possible.
 

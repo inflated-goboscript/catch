@@ -13,26 +13,27 @@ var _CatchConfig _catch_status;
 
 
 %define Info(_type, _message, _is_error) (Info{type:_type, message:_message, is_error:_is_error, timestamp:(days_since_2000() + 10957) * 86400})
-%define Error(_type, _message) (Info(_type, _message, true))
+%define ErrorMsg(_type, _message) (Info(_type, _message, true))
+%define Error(_type) (Info(_type, "", true))
 %define Event(_type, _message) (Info(_type, _message, false))
 
 list Info info_stack = [];
 onflag {
     delete info_stack;
-    _catch_status = _CatchConfig
+    _catch_status = _CatchConfig{};
 }
 
-proc force_raise Info info {
+proc _force_raise Info info {
     error "Uncaught " & $info.type & ": " & $info.message;
     breakpoint;
     stop_all;
 }
 
-proc raise Info info {
+proc raise Info info, force=false {
     add $info to info_stack;
 
-    if $info.is_error and _catch_status.trying < 1 {
-        force_raise $info;
+    if $info.is_error and ($force or _catch_status.trying < 1) {
+        _force_raise $info;
     }
 }
 
@@ -56,7 +57,7 @@ proc validate_errors {
     repeat length info_stack {
         local Info info = info_stack[i];
         if info.is_error {
-            force_raise info;
+            _force_raise info;
         }
     }
 }
