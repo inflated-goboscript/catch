@@ -26,9 +26,10 @@ nowarp proc main {
     # }
 
     TRY({
-        say div(3, 0);
+        say div(random(1, 10), random(0, 2));
 
         CATCH("ZeroDivisionError") {
+            say "Uh i made a mistake";
             log "oops..";
         }
     });
