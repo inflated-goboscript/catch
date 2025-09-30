@@ -5,10 +5,19 @@
 [![Build](https://github.com/inflated-goboscript/catch/actions/workflows/gobuild.yml/badge.svg)](https://github.com/inflated-goboscript/catch/actions/workflows/gobuild.yml)
 [![Run /test/](https://github.com/inflated-goboscript/catch/actions/workflows/gstest.yml/badge.svg)](https://github.com/inflated-goboscript/catch/actions/workflows/gstest.yml)
 
-> catch
+> Use catch.gs to catch your errors and stuff
 
-This is a catch library which is built for [goboscript](https://github.com/aspizu/goboscript).
+This is the baseline error handling library which is built for [goboscript](https://github.com/aspizu/goboscript).
 It is designed to be used with [inflator](https://github.com/inflated-goboscript/inflator).
+
+> [!WARNING]
+> Because of the nature of goboscript, catch cannot function the exact same way as in other programming languages.
+> i.e. The end of a try{} block WILL run before any uncaught errors are raised.
+> If goboscript adds a 'break' feature, this could be implemented.
+
+> [!NOTE]
+> There is a chance that the 'context handler' macros could break in future goboscript versions.
+> if they do, you can still use the more barebones method - using `try;` and `if except()` directly
 
 ## Credits
 

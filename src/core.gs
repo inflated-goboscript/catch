@@ -17,6 +17,9 @@ var _CatchConfig _catch_status;
 %define Event(_type, _message) (Info(_type, _message, false))
 
 list Info info_stack = [];
+onflag {
+    delete info_stack;
+}
 
 proc _force_raise Info info {
     error "Uncaught " & $info.type & ": " & $info.message;

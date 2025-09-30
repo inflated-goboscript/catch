@@ -1,1 +1,2 @@
-%include inflator/catch/src/info
+%include inflator/catch/src/core
+%include inflator/catch/src/context_manager
