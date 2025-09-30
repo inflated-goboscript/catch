@@ -1,1 +1,1 @@
-%include inflator/catch/src/greeting
+%include inflator/catch/src/info
