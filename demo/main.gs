@@ -20,9 +20,9 @@ nowarp proc main {
 
     try;
         say div(3, 0), 0.25;
-        raise Error("BruhException"), force: false;
+        raise Error("BruhError"), force: false;
 
     if catch("ZeroDivisionError") {
-        log caught_exception.message;
+        log caught_exceptions[1].message;
     } validate_errors;
 }

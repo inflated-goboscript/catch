@@ -21,23 +21,29 @@ proc try {
     _catch_status.try_level++;
 }
 
-var Debug caught_exception;
-func catch(exception_name) {    
-    if debug_stack["last"].title == $exception_name {
-        caught_exception = debug_stack["last"];
-        delete debug_stack["last"];
-        return true;
+list Debug caught_exceptions;
+func catch(exception_name) {
+    delete caught_exceptions;
+
+    local i = 1;
+    repeat length debug_stack {
+        if debug_stack[i].title == $exception_name and debug_stack[i].try_level <= _catch_status.try_level {
+            add debug_stack[i] to caught_exceptions;
+            delete debug_stack[i];
+        } else {
+            i++; # dont increment when you just deleted an item
+        }
     }
-    return false;
+    return length caught_exceptions > 0;
 }
 
 proc validate_errors {
-    _catch_status.try_level--;
     local i = 1;
     repeat length debug_stack {
-        local Debug info = debug_stack[i];
-        if info.type == _catch_DebugTypes._error {
-            _force_raise info;
+        if debug_stack[i].try_level == _catch_status.try_level and debug_stack[i].type == _catch_DebugTypes._error {
+            _force_raise debug_stack[i];
         }
     }
+
+    _catch_status.try_level--;
 }

@@ -1,7 +1,7 @@
 enum _catch_DebugTypes {
-    _error, # error will cause breakpoint
-    _warn,
-    _log,
+    _error = "ERROR", # error will cause breakpoint
+    _warn = "WARN",
+    _log = "LOG",
 }
 
 # represents a TW debugger message.
