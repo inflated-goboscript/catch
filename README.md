@@ -5,7 +5,7 @@
 [![Build](https://github.com/inflated-goboscript/catch/actions/workflows/gobuild.yml/badge.svg)](https://github.com/inflated-goboscript/catch/actions/workflows/gobuild.yml)
 [![Run /test/](https://github.com/inflated-goboscript/catch/actions/workflows/gstest.yml/badge.svg)](https://github.com/inflated-goboscript/catch/actions/workflows/gstest.yml)
 
-> Use catch.gs to catch your errors and stuff
+> Essentially a nice wrapper around the TW debugger
 
 This is the baseline error handling library which is built for [goboscript](https://github.com/aspizu/goboscript).
 It is designed to be used with [inflator](https://github.com/inflated-goboscript/inflator).

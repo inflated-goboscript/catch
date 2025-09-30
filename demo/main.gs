@@ -17,10 +17,10 @@ nowarp proc main {
     say div(1, 2), 0.25;
     say div(2, 3), 0.25;
 
-    raise Error("bruh"), force: true;
 
     try;
         say div(3, 0), 0.25;
+        raise Error("BruhException"), force: false;
 
     if catch("ZeroDivisionError") {
         log caught_exception.message;
