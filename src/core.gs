@@ -19,9 +19,10 @@ var _CatchConfig _catch_status;
 list Info info_stack = [];
 onflag {
     delete info_stack;
+    _catch_status = _CatchConfig
 }
 
-proc _force_raise Info info {
+proc force_raise Info info {
     error "Uncaught " & $info.type & ": " & $info.message;
     breakpoint;
     stop_all;
@@ -31,7 +32,7 @@ proc raise Info info {
     add $info to info_stack;
 
     if $info.is_error and _catch_status.trying < 1 {
-        _force_raise $info;
+        force_raise $info;
     }
 }
 
@@ -40,9 +41,7 @@ proc try {
 }
 
 var Info caught_exception;
-func catch(exception_name) {
-    _catch_status.trying--;
-    
+func catch(exception_name) {    
     if info_stack["last"].type == $exception_name {
         caught_exception = info_stack["last"];
         delete info_stack["last"];
@@ -52,11 +51,12 @@ func catch(exception_name) {
 }
 
 proc validate_errors {
+    _catch_status.trying--;
     local i = 1;
     repeat length info_stack {
         local Info info = info_stack[i];
         if info.is_error {
-            _force_raise info;
+            force_raise info;
         }
     }
 }

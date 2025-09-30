@@ -10,14 +10,26 @@
 This is the baseline error handling library which is built for [goboscript](https://github.com/aspizu/goboscript).
 It is designed to be used with [inflator](https://github.com/inflated-goboscript/inflator).
 
-> [!WARNING]
-> Because of the nature of goboscript, catch cannot function the exact same way as in other programming languages.
-> i.e. The end of a try{} block WILL run before any uncaught errors are raised.
-> If goboscript adds a 'break' feature, this could be implemented.
+No dependencies.
+
+## Usage
+
+1. Use the `try;` procedure to enter a try block. This will prevent any errors from immediately raising.
+2. Catch any errors by error name using `if catch("error name")`
+3. End the try/catch block using `validate_errors;`. This will raise any uncaught exceptions.
+
+```goboscript
+try;
+    say div(3, 0), 0.25;
+if catch("ZeroDivisionError") {
+    log caught_exception.message;
+} validate_errors;
+```
 
 > [!NOTE]
-> There is a chance that the 'context handler' macros could break in future goboscript versions.
-> if they do, you can still use the more barebones method - using `try;` and `if catch()` directly
+> All code within the try block *WILL* be executed, even if errors ocurr, unless it is raised by `force_raise`!
+>
+> This will immediately cause a `breakpoint` and `stop_all`, so there is no chance for any error catching. It is recommended to avoid this where possible.
 
 ## Credits
 
